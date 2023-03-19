@@ -7,12 +7,14 @@ from modelscope.outputs import OutputKeys
 from modelscope.pipelines import pipeline
 from huggingface_hub import snapshot_download
 
+loading = False
 pipe = None
 
 def load_pipeline():
+    global loading
     global pipe
 
-    if pipe is not None:
+    if loading or pipe is not None:
         return
 
     model_dir = Path(os.path.join(ROOT_DIR, "models"))
