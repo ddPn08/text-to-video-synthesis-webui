@@ -1,4 +1,4 @@
-# txt2img-video-synthesis webui
+# txt2video-synthesis webui
 
 Run text-to-video synthesis in webui.
 
