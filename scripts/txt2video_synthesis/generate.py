@@ -10,6 +10,7 @@ from huggingface_hub import snapshot_download
 loading = False
 pipe = None
 
+
 def load_pipeline():
     global loading
     global pipe
@@ -17,6 +18,7 @@ def load_pipeline():
     if loading or pipe is not None:
         return
 
+    loading = True
     model_dir = Path(os.path.join(ROOT_DIR, "models"))
     cache_dir = Path(os.path.join(ROOT_DIR, "cache"))
     snapshot_download(
@@ -27,15 +29,13 @@ def load_pipeline():
         local_dir_use_symlinks=False,
     )
     pipe = pipeline("text-to-video-synthesis", model_dir.as_posix())
-
-    print("Loaded pipeline.")
+    loading = False
 
 
 def unload_pipeline():
     global pipe
     del pipe
     pipe = None
-    print("Unloaded pipeline.")
 
 
 def generate(prompt: str, seed: int):

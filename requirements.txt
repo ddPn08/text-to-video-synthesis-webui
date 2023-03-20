@@ -1,4 +1,5 @@
 open_clip_torch
 pytorch_lightning
-huggingface_hub
-gradio==3.16.2
+gradio
+tensorflow>=2.10.1
+huggingface_hub>=0.13

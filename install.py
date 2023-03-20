@@ -37,8 +37,12 @@ def prepare_environment():
 
     if not launch.is_installed("modelscope"):
         launch.run_pip(
-            "install git+https://github.com/modelscope/modelscope.git@refs/pull/207/head",
+            "install modelscope",
             "modelscope",
+        )
+        launch.run_pip(
+            "install git+https://github.com/modelscope/modelscope.git@refs/pull/207/head -U",
+            "modelscope (fixed)",
         )
 
     if not launch.is_installed("pyngrok") and ngrok:

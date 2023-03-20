@@ -1,3 +1,5 @@
 cache
 models
 __pycache__
+venv
+tmp
